@@ -1,0 +1,168 @@
+/* Base styles */
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f7f9fc; }
+.tab-item.active { border-bottom: 3px solid #3b82f6; color: #3b82f6; font-weight: 600; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* Components */
+.progress-ring { transform: rotate(-90deg); transition: stroke-dashoffset 0.5s ease-out; }
+.calendar-day { padding-bottom: 100%; position: relative; display: flex; align-items: center; justify-content: center; border: 1px solid #e5e7eb; min-height: 50px; }
+.calendar-day-content { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 4px; cursor: pointer; }
+.calendar-day-number { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.8rem; transition: background-color 0.2s, color 0.2s; }
+.calendar-day-content:hover .calendar-day-number:not(.is-today):not(.is-selected) { background-color: #f3f4f6; }
+.calendar-day-content.has-event .calendar-day-number::after { content: ''; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); width: 6px; height: 6px; border-radius: 50%; background-color: #3b82f6; }
+.calendar-day-content.is-today .calendar-day-number { background-color: #ef4444; color: white; font-weight: bold; }
+.calendar-day-content.is-selected .calendar-day-number { background-color: #3b82f6; color: white; font-weight: bold; }
+.calendar-day-content.is-other-month { color: #9ca3af; cursor: default; pointer-events: none; }
+.chart-bar { transition: width 0.8s ease-out; }
+.task-checkbox { appearance: none; width: 18px; height: 18px; border: 2px solid #9ca3af; border-radius: 4px; cursor: pointer; position: relative; margin-right: 0.75rem; flex-shrink: 0; transition: background-color 0.2s, border-color 0.2s; }
+.task-checkbox:checked { background-color: #34d399; border-color: #34d399; }
+.task-checkbox:checked::after { content: '✓'; position: absolute; color: white; font-size: 12px; font-weight: bold; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.task-checkbox + label { cursor: pointer; line-height: 1.4; }
+.task-checkbox:checked + label { text-decoration: line-through; color: #6b7280; }
+.pomodoro-mode { padding: 0.5rem 1rem; border-radius: 0.375rem; font-size: 0.875rem; cursor: pointer; transition: background-color 0.2s, color 0.2s, box-shadow 0.2s; border: 1px solid transparent; }
+.pomodoro-mode.active { background-color: #dbeafe; color: #1d4ed8; font-weight: 600; border-color: #93c5fd; }
+.pomodoro-mode:not(.active) { background-color: #f3f4f6; color: #374151; }
+.pomodoro-mode:not(.active):hover { background-color: #e5e7eb; }
+.accordion-toggle { transition: background-color 0.2s; }
+.accordion-toggle:hover { background-color: #f9fafb; }
+.accordion-icon { transition: transform 0.3s ease; }
+.accordion-content { transition: max-height 0.3s ease-out, padding 0.3s ease-out; overflow: hidden; max-height: 0; padding-top: 0; padding-bottom: 0; }
+.accordion-content.open { max-height: 1000px; padding-top: 1rem; padding-bottom: 1rem; } /* Use padding in transition */
+.rotate-180 { transform: rotate(180deg); }
+
+/* Subject tab styles */
+.subject-tab a.active {
+    color: #3b82f6;
+    border-bottom-color: #3b82f6;
+}
+
+.subject-content {
+    display: none;
+}
+
+.subject-content.active {
+    display: block;
+}
+
+/* Topic item styles */
+.topic-item {
+    transition: background-color 0.2s;
+}
+
+.topic-item:hover {
+    background-color: #f9fafb;
+}
+
+.topic-checkbox {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #9ca3af;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.topic-checkbox:checked {
+    background-color: #34d399;
+    border-color: #34d399;
+}
+
+.topic-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Mock test card styles */
+.mock-test-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.mock-test-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Alert styles */
+.alert-success #alert-icon {
+    background-color: #10b981;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 13l4 4L19 7'%3E%3C/path%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 13l4 4L19 7'%3E%3C/path%3E%3C/svg%3E");
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+}
+
+.alert-error #alert-icon {
+    background-color: #ef4444;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 18L18 6M6 6l12 12'%3E%3C/path%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 18L18 6M6 6l12 12'%3E%3C/path%3E%3C/svg%3E");
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+}
+
+.alert-info #alert-icon {
+    background-color: #3b82f6;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'%3E%3C/path%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'%3E%3C/path%3E%3C/svg%3E");
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+}
+
+/* Animation for alert */
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+.alert-slide-in {
+    animation: slideIn 0.3s forwards;
+}
+
+.alert-slide-out {
+    animation: slideOut 0.3s forwards;
+}
+
+/* Print styles */
+@media print {
+    .no-print { display: none !important; }
+    body { background-color: white; font-size: 10pt; }
+    header, nav, footer { display: none; }
+    .container { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
+    .tab-content { display: block !important; margin-bottom: 2rem; page-break-before: always; }
+    .tab-content:first-of-type { page-break-before: avoid; }
+    h1, h2, h3, h4 { page-break-after: avoid; }
+    .bg-white, .bg-blue-50, .bg-green-50, .bg-purple-50, .bg-yellow-50, .bg-red-50, .bg-indigo-50 { 
+        background-color: transparent !important; 
+        border: 1px solid #ccc !important; 
+        box-shadow: none !important; 
+    }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
+    th, td { border: 1px solid #ddd; padding: 4px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    button, select, input[type="date"], input[type="time"], input[type="number"], input[type="text"], textarea { display: none !important; }
+    .task-checkbox { border: 1px solid #000; display: inline-block; margin-right: 5px; }
+    .task-checkbox::after { content: ''; }
+    .task-checkbox:checked::before { content: 'X'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 10px; font-weight: bold; }
+    .sm\:inline { display: inline !important; }
+}
